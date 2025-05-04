@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:17:17 by kato              #+#    #+#             */
-/*   Updated: 2025/05/04 18:52:24 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 19:05:00 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,77 +14,38 @@
 
 int	ft_putnbr(int n)
 {
-	int	len;
-
-	len = 0;
 	if (n == -2147483648)
 		return (ft_putstr("-2147483648"));
 	if (n < 0)
 	{
 		ft_putchar('-');
-		n = -n;
-		len++;
+		return (1 + ft_putnbr(-n));
 	}
 	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		len++;
-	}
-	ft_putchar((n % 10) + '0');
-	len++;
-	return (len);
+		return (ft_putnbr(n / 10) + ft_putchar((n % 10) + '0'));
+	return (ft_putchar(n + '0'));
 }
 
 int	ft_putnbr_unsigned(unsigned int n)
 {
-	int	len;
-
-	len = 0;
 	if (n >= 10)
-	{
-		ft_putnbr_unsigned(n / 10);
-		len++;
-	}
-	ft_putchar((n % 10) + '0');
-	len++;
-	return (len);
+		return (ft_putnbr_unsigned(n / 10) + ft_putchar((n % 10) + '0'));
+	return (ft_putchar(n + '0'));
 }
 
 int	ft_putnbr_hex(unsigned int n, char format)
 {
 	char	*base;
-	int		len;
 
-	len = 0;
-	if (format == 'x')
-		base = "0123456789abcdef";
-	else
-		base = "0123456789ABCDEF";
+	base = (format == 'x') ? "0123456789abcdef" : "0123456789ABCDEF";
 	if (n >= 16)
-	{
-		ft_putnbr_hex(n / 16, format);
-		len++;
-	}
-	ft_putchar(base[n % 16]);
-	len++;
-	return (len);
+		return (ft_putnbr_hex(n / 16, format) + ft_putchar(base[n % 16]));
+	return (ft_putchar(base[n % 16]));
 }
 
 int	ft_putptr(unsigned long ptr)
 {
-	int	len;
-
-	len = 0;
 	if (ptr == 0)
 		return (ft_putstr("(nil)"));
-	len++;
-	ft_putstr("0x");
-	if (ptr >= 16)
-	{
-		ft_putnbr_hex(ptr / 16, 'x');
-		len++;
-	}
-	ft_putchar("0123456789abcdef"[ptr % 16]);
-	len++;
-	return (len);
+	return (ft_putstr("0x") + ft_putnbr_hex(ptr, 'x'));
 }
