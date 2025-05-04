@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:17:17 by kato              #+#    #+#             */
-/*   Updated: 2025/05/04 19:05:52 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 19:08:43 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_putnbr_unsigned(unsigned int n)
 	return (ft_putchar(n + '0'));
 }
 
-int	ft_putnbr_hex(unsigned int n, char format)
+int	ft_putnbr_hex(unsigned long n, char format)
 {
 	char	*base;
 
