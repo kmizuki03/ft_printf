@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:17:17 by kato              #+#    #+#             */
-/*   Updated: 2025/05/04 19:05:00 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 19:05:52 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int	ft_putnbr_hex(unsigned int n, char format)
 {
 	char	*base;
 
-	base = (format == 'x') ? "0123456789abcdef" : "0123456789ABCDEF";
+	if (format == 'x')
+		base = "0123456789abcdef";
+	else
+		base = "0123456789ABCDEF";
 	if (n >= 16)
 		return (ft_putnbr_hex(n / 16, format) + ft_putchar(base[n % 16]));
 	return (ft_putchar(base[n % 16]));
