@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 20:51:28 by kato              #+#    #+#             */
-/*   Updated: 2025/05/03 11:35:18 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 18:07:14 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	handle_format(char c, va_list args)
 		return (ft_putnbr_unsigned(va_arg(args, unsigned int)));
 	else if (c == 'x' || c == 'X')
 		return (ft_putnbr_hex(va_arg(args, unsigned int), c));
+	else if (c == 'p')
+		return (ft_putptr(va_arg(args, void *)));
 	else if (c == '%')
 		return (ft_putchar('%'));
 	return (0);
