@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:17:17 by kato              #+#    #+#             */
-/*   Updated: 2025/05/04 18:23:33 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 18:34:36 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,12 @@ int	ft_putptr(unsigned long ptr)
 
 	len = 0;
 	if (ptr == 0)
-		return (ft_putstr("(null)"));
-	len = ft_putstr("0x");
+		return (ft_putstr("0x0"));
 	len++;
+	ft_putstr("0x");
 	if (ptr >= 16)
 	{
-		ft_putptr(ptr / 16);
+		ft_putnbr_hex(ptr / 16, 'x');
 		len++;
 	}
 	ft_putchar("0123456789abcdef"[ptr % 16]);
