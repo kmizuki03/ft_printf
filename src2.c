@@ -6,7 +6,7 @@
 /*   By: kato <kato@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 18:17:17 by kato              #+#    #+#             */
-/*   Updated: 2025/05/04 18:41:05 by kato             ###   ########.fr       */
+/*   Updated: 2025/05/04 18:52:24 by kato             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_putptr(unsigned long ptr)
 
 	len = 0;
 	if (ptr == 0)
-		return (ft_putstr("0x0"));
+		return (ft_putstr("(nil)"));
 	len++;
 	ft_putstr("0x");
 	if (ptr >= 16)
